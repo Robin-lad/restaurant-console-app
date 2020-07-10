@@ -2,7 +2,7 @@ package dev.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import dev.dao.IPlatDao;
@@ -11,11 +11,12 @@ import dev.exception.PlatException;
 
 
 @Service
+@Profile("service1")
 public class PlatServiceVersion1 implements IPlatService {
 
     private IPlatDao dao;
 
-    public PlatServiceVersion1(@Qualifier("platDaoFichier") IPlatDao dao) {
+    public PlatServiceVersion1(IPlatDao dao) {
         this.dao = dao;
     }
 

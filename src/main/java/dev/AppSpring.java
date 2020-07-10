@@ -22,6 +22,10 @@ public class AppSpring {
 	 */
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+//		context.getEnvironment().setActiveProfiles("service1","platFichier");
+//		context.register(AppConfig.class);
+//		context.refresh();
 		// récupération du bean Menu
 		Menu menu = context.getBean(Menu.class);
 		menu.afficher();
