@@ -1,17 +1,14 @@
 package dev.ihm;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import dev.exception.PlatException;
 import dev.ihm.options.IOptionMenu;
-import dev.ihm.options.OptionAjouterPlat;
-import dev.ihm.options.OptionListerPlats;
-import dev.ihm.options.OptionTerminer;
 import dev.service.IPlatService;
 
 @Controller
@@ -22,10 +19,14 @@ public class Menu {
     private String menu;
     private Scanner scanner;
    
-    public Menu(Scanner scanner, IPlatService service) {
-        actions.put(1, new OptionListerPlats(service));
-        actions.put(2, new OptionAjouterPlat(scanner, service));
-        actions.put(99, new OptionTerminer());
+    public Menu(Scanner scanner, IPlatService service, List<IOptionMenu> options) {
+//        actions.put(1, new OptionListerPlats(service));
+//        actions.put(2, new OptionAjouterPlat(scanner, service));
+//        actions.put(99, new OptionTerminer());
+    	
+    	for(int i = 0; i < options.size();i++) {
+    		actions.put(i+1, options.get(i));
+    	}
         this.scanner = scanner;
     }
 

@@ -23,9 +23,11 @@ public class App {
             PlatServiceVersion2 platServiceVersion2 = new PlatServiceVersion2(platDaoMemoire);
 
             // Construction du menu avec le service choisi
+            
+            /* Ne marche plus car j'ai changé le constructeur de menu pour l'étape optionnelle (après les profiles)
             Menu menu = new Menu(scanner, platServiceVersion2);
-
             menu.afficher();
+            */
         }
     }
 }
