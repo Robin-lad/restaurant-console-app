@@ -31,13 +31,17 @@ public class PlatDaoFichierTest {
 		
 		assertThat(dao.listerPlats()).containsExactly(new Plat("saucisses", 15000));
 		
-		assertThat(dao.listerPlats()).size().isOne();
+		assertThat(dao.listerPlats()).hasSize(1);
 	}
 	
 	@Test
 	void ajouterPlatTestSauvegarde() {
 		dao.ajouterPlat("saucisses", 15000);
-		//??
-		assertThat(dao.listerPlats()).size().isOne();
+		assertThat(dao.listerPlats()).extracting(Plat::getNom).contains("saucisses");
+		assertThat(dao.listerPlats()).extracting(Plat::getPrixEnCentimesEuros).contains(15000);
+		
+		assertThat(dao.listerPlats()).containsExactly(new Plat("saucisses", 15000));
+		
+		assertThat(dao.listerPlats()).hasSize(1);
 	}
 }
