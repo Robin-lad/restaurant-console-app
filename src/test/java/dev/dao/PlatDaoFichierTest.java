@@ -36,11 +36,11 @@ public class PlatDaoFichierTest {
 	
 	@Test
 	void ajouterPlatTestSauvegarde() {
-		dao.ajouterPlat("saucisses", 15000);
-		assertThat(dao.listerPlats()).extracting(Plat::getNom).contains("saucisses");
-		assertThat(dao.listerPlats()).extracting(Plat::getPrixEnCentimesEuros).contains(15000);
+		dao.ajouterPlat("saucisses2", 15000);
+		assertThat(dao.listerPlats()).extracting(Plat::getNom).contains("saucisses2");
+		assertThat(dao.listerPlats()).extracting(Plat::getPrixEnCentimesEuros).contains(16000);
 		
-		assertThat(dao.listerPlats()).containsExactly(new Plat("saucisses", 15000));
+		assertThat(dao.listerPlats()).containsExactly(new Plat("saucisses2", 16000));
 		
 		assertThat(dao.listerPlats()).hasSize(1);
 	}
