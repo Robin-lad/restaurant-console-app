@@ -33,4 +33,11 @@ public class PlatDaoFichierTest {
 		
 		assertThat(dao.listerPlats()).size().isOne();
 	}
+	
+	@Test
+	void ajouterPlatTestSauvegarde() {
+		dao.ajouterPlat("saucisses", 15000);
+		//??
+		assertThat(dao.listerPlats()).size().isOne();
+	}
 }
