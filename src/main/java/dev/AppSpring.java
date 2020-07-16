@@ -21,18 +21,14 @@ public class AppSpring {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-		
-//		context.getEnvironment().setActiveProfiles("service1","platFichier");
-//		context.register(AppConfig.class);
-//		context.refresh();
-		// récupération du bean Menu
-		Menu menu = context.getBean(Menu.class);
-		menu.afficher();
-		// fermeture du Scanner
-		context.getBean(Scanner.class).close();
-		// fermeture du contexte Spring
-		context.close();
-	}
+		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class)) {
 
+			// récupération du bean Menu
+			Menu menu = context.getBean(Menu.class);
+			menu.afficher();
+			// fermeture du Scanner
+			context.getBean(Scanner.class).close();
+			// fermeture du contexte Spring
+		}
+	}
 }
