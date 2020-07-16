@@ -7,18 +7,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import dev.config.DataSourceConfig;
+import dev.config.DataSourceH2TestConfig;
+import dev.config.JdbcTestConfig;
 import dev.entite.Plat;
 
 /**
  * @author robin
  *
  */
-@SpringJUnitConfig(classes = { PlatDaoJdbc.class, DataSourceConfig.class })
-@TestPropertySource("classpath:test2.properties")
+@SpringJUnitConfig(classes = { PlatDaoJdbc.class, JdbcTestConfig.class, DataSourceH2TestConfig.class })
+@ActiveProfiles("jdbc")
 public class PlatDaoJdbcIntegrationTest {
 	
 	@Autowired
