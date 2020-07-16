@@ -31,7 +31,6 @@ public class PlatDaoJdbcIntegrationTest {
 	
 	@Test
 	void ajouterPlatsValide() {
-		Plat p = new Plat("platTest", 1000);
 		jdbc.ajouterPlat("platTest", 1000);
 		assertThat(jdbc.listerPlats()).extracting(Plat::getNom).contains("platTest");
 		assertThat(jdbc.listerPlats()).extracting(Plat::getPrixEnCentimesEuros).contains(1000);
