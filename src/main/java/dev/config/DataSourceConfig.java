@@ -16,7 +16,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  *
  */
 @Configuration
-@Profile({"jdbc", "jpa"})
+@Profile("jpa")
 public class DataSourceConfig {
 
 	@Bean
