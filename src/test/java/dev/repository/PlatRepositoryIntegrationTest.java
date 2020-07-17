@@ -92,8 +92,8 @@ public class PlatRepositoryIntegrationTest {
 
 	@Test
 	void testFindByNomWithIngredients() {
-		List<Ingredient> ingredients = pr.findByNomWithIngredients("Couscous");
-		assertThat(ingredients).hasSize(3);
+		List<Ingredient> ingredients = pr.findByNomWithIngredients("Magret de canard");
+		assertThat(ingredients).hasSize(5);
 	}
 
 	@Test
